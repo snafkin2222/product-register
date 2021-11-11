@@ -18,6 +18,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: db
+  # host: localhost
   user: postgres
   port: 5432
   password: <%= ENV.fetch("DATABASE_PASSWORD") %>
@@ -61,7 +62,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  host: localhost
+  # host: localhost
   database: product-register_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -84,6 +85,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
+
+  adapter: postgresql
+  encoding: unicode
+
   <<: *default
   database: product-register_production
   username: product-register
